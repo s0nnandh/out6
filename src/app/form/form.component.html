@@ -1,0 +1,42 @@
+<form [formGroup]="profileForm">
+  
+    <label>
+      Name:
+      <input type="text" formControlName="Name">
+    </label>
+  
+    <label>
+      Email:
+      <input type="text" formControlName="Email">
+    </label>
+
+    <div>
+        <label>Feedback</label>
+        <div class="row">
+          <label class="md-check">
+            <input type="radio" value="Great" name="Feedback" formControlName="Feedback">
+            Great
+          </label>
+      
+          <label class="md-check">
+            <input type="radio" value="Okay" name="Feedback" formControlName="Feedback">     
+            Okay
+          </label>
+    
+          <label class="md-check">
+            <input type="radio" value="Not Good" name="Feedback" formControlName="Feedback">     
+            Not Good
+          </label>
+        </div>
+    </div>
+
+    <label>
+        Comments:
+        <input type="text" formControlName="Comments">
+      </label>
+  
+  </form>
+
+  <p>
+      Value : {{ profileForm.controls['Feedback'].value}}
+  </p>

@@ -7,18 +7,22 @@ import { AppComponent } from './app.component';
 import { FormComponent } from './form/form.component';
 import { HeaderComponent } from './header/header.component';
 import { ContactpageComponent } from './contactpage/contactpage.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    FormComponent,
+    AppComponent,    
     HeaderComponent,
-    ContactpageComponent
+    FormComponent,
+    ContactpageComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

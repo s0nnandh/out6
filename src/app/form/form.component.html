@@ -1,4 +1,4 @@
-<form [formGroup]="profileForm">
+<form [formGroup]="profileForm" (ngSubmit)="PostData()">
   
     <label>
       Name:
@@ -22,7 +22,7 @@
             <input type="radio" value="Okay" name="Feedback" formControlName="Feedback">     
             Okay
           </label>
-    
+        
           <label class="md-check">
             <input type="radio" value="Not Good" name="Feedback" formControlName="Feedback">     
             Not Good
@@ -34,9 +34,18 @@
         Comments:
         <input type="text" formControlName="Comments">
       </label>
+
+      <button type="submit" [disabled]="!profileForm.valid">Submit</button>
   
   </form>
 
   <p>
-      Value : {{ profileForm.controls['Feedback'].value}}
+    Form Status: {{ profileForm.status }}
   </p>
+
+  <p>
+      Value : {{ profileForm.value | json }}
+  </p>
+
+ 
+ 

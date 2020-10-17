@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { FormsService} from '../forms.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-form',
@@ -12,14 +13,18 @@ export class FormComponent implements OnInit {
 
   var;
 
+  str = 'Hello';
+
   profileForm = new FormGroup({
-    Name: new FormControl('',Validators.required),
-    Email: new FormControl('',Validators.required),
-    Feedback: new FormControl('',Validators.required),
-    Comments: new FormControl(''),
+    name: new FormControl('',Validators.required),
+    email: new FormControl('',Validators.required),
+    feedback: new FormControl('',Validators.required),
+    comment: new FormControl(''),
   });
 
   constructor(private formservice : FormsService) { }
+
+  
 
   ngOnInit(): void {
     this.getData()
@@ -29,19 +34,21 @@ export class FormComponent implements OnInit {
     this.formservice.getForm()
         .subscribe((data : any) => {
           this.profileForm.setValue({
-            Name: data.name, 
-            Email: data.email,
-            Feedback:data.feedback,
-            Comments:data.comment
+            name: data.name, 
+            email: data.email,
+            feedback:data.feedback,
+            comment:data.comment
           });          
         });
   }
 
-  PostData() : void{    
+  PostData() : void{  
+    console.log(this.profileForm.value)  
     this.formservice.PostForm(this.profileForm.value)
-        .subscribe((data : any) => {
-          console.log(data);
-        });
+        .subscribe(
+          data => console.log(data),
+          error => console.error('Error',error)        
+        );
 
   }
 

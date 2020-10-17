@@ -2,41 +2,53 @@
   
     <label>
       Name:
-      <input type="text" formControlName="Name">
+      <input type="text" formControlName="name">
     </label>
   
     <label>
       Email:
-      <input type="text" formControlName="Email">
+      <input type="email" formControlName="email">
     </label>
 
     <div>
         <label>Feedback</label>
         <div class="row">
           <label class="md-check">
-            <input type="radio" value="Great" name="Feedback" formControlName="Feedback">
+            <input type="radio" value="Great" name="feedback" formControlName="feedback">
             Great
           </label>
       
           <label class="md-check">
-            <input type="radio" value="Okay" name="Feedback" formControlName="Feedback">     
+            <input type="radio" value="Okay" name="feedback" formControlName="feedback">     
             Okay
           </label>
         
           <label class="md-check">
-            <input type="radio" value="Not Good" name="Feedback" formControlName="Feedback">     
+            <input type="radio" value="Not Good" name="feedback" formControlName="feedback">     
             Not Good
           </label>
         </div>
     </div>
 
-    <label>
+    <!--<label>
         Comments:
-        <input type="text" formControlName="Comments">
+        <input type="textarea" formControlName="Comments">
       </label>
 
-      <button type="submit" [disabled]="!profileForm.valid">Submit</button>
-  
+      <button type="submit" [disabled]="!profileForm.valid">Submit</button>-->
+
+      <label>
+        Comments:
+      <textarea matInput 
+      placeholder="comment" 
+      formControlName="comment" 
+      rows="4" cols="50"     
+      >
+  </textarea>
+</label>
+<div>
+<button type="submit" [disabled]="!profileForm.valid">Submit</button>
+</div>
   </form>
 
   <p>

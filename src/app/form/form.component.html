@@ -1,18 +1,21 @@
+<br>
 <form [formGroup]="profileForm" (ngSubmit)="PostData()">
-  
+  <div>  
     <label>
-      Name:
+      <strong>Name : </strong>
       <input type="text" formControlName="name">
     </label>
-  
+  </div>
+  <br>
+  <div>
     <label>
-      Email:
-      <input type="email" formControlName="email">
+      <strong> Email : </strong>
+      <input type="text" formControlName="email">
     </label>
-
+  </div>
+  <br>
     <div>
-        <label>Feedback</label>
-        <div class="row">
+        <label><strong>Feedback : </strong></label>
           <label class="md-check">
             <input type="radio" value="Great" name="feedback" formControlName="feedback">
             Great
@@ -27,36 +30,30 @@
             <input type="radio" value="Not Good" name="feedback" formControlName="feedback">     
             Not Good
           </label>
-        </div>
+        
     </div>
-
-    <!--<label>
-        Comments:
-        <input type="textarea" formControlName="Comments">
-      </label>
-
-      <button type="submit" [disabled]="!profileForm.valid">Submit</button>-->
-
-      <label>
-        Comments:
-      <textarea matInput 
-      placeholder="comment" 
-      formControlName="comment" 
-      rows="4" cols="50"     
-      >
-  </textarea>
-</label>
-<div>
-<button type="submit" [disabled]="!profileForm.valid">Submit</button>
-</div>
+    <br>
+    <label>
+        <strong> Comments : </strong>
+         <textarea matInput 
+          placeholder="comment" 
+          formControlName="comment" 
+          rows="4" cols="50"     
+          >
+        </textarea>
+    </label>
+    <br>
+    <br>
+      <button type="submit" [disabled]="!profileForm.valid"><strong>Submit</strong></button>
+  
   </form>
 
   <p>
-    Form Status: {{ profileForm.status }}
+    <strong>Form Status : </strong> {{ profileForm.status }}
   </p>
 
   <p>
-      Value : {{ profileForm.value | json }}
+      <strong> Value : </strong>{{ profileForm.value | json }}
   </p>
 
  

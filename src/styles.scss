@@ -1,1 +1,58 @@
-/* You can add global styles to this file, and also import other style files */
+body,html{
+  background-image:url('https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');
+  
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+strong{
+  color: darkblue;
+  text-align: center;
+  font-size: 30px;
+}
+button {
+  background-color: violet;
+  height: 35px;
+  width: 120px;
+}
+ button.Submit {
+    font-family: Arial;
+    background-color: #eee;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    cursor: hand;
+  }
+button:hover {
+    background-color: #cfd8dc;
+}
+button:disabled {
+    background-color: #eee;
+    color: #aaa;
+    cursor: auto;
+} 
+
+button.Submit{
+  color: #333;
+  margin-bottom: 12px;
+}
+* {
+  font-family : fantasy;
+}
+input,textarea{
+  color : black;
+  font-size : 15px;
+}
+nav {
+  text-align: center;
+  background-color: pink;
+  height :30px;
+}
+form,p,div {
+  text-align: center;
+  font-size: 25px;
+  color : black;
+}

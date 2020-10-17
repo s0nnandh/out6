@@ -45,8 +45,16 @@ export class FormComponent implements OnInit {
   PostData() : void{  
     console.log(this.profileForm.value)  
     this.formservice.PostForm(this.profileForm.value)
-        .subscribe(
-          data => console.log(data),
+        .subscribe(          
+          data => {
+            console.log(data)
+            this.profileForm.setValue({
+              name: '', 
+              email:  '',
+              feedback:'',
+              comment:''
+            });                
+          },
           error => console.error('Error',error)        
         );
 

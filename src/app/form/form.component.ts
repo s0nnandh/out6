@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class FormComponent implements OnInit {
 
-  var;
+  var : any  = 'false';
 
   str = 'Hello';
 
@@ -47,17 +47,30 @@ export class FormComponent implements OnInit {
     this.formservice.PostForm(this.profileForm.value)
         .subscribe(          
           data => {
-            console.log(data)
+            this.var = "true";
+            console.log(data) 
             this.profileForm.setValue({
               name: '', 
               email:  '',
               feedback:'',
               comment:''
-            });                
+            });                                       
           },
-          error => console.error('Error',error)        
+          error => console.error('Error',error),        
         );
-
+        console.log(this.var);
+        this.Update();        
+  }
+  
+  Update() : void{
+    if(this.var == 'true'){
+      this.profileForm.setValue({
+        name: '', 
+        email:  '',
+        feedback:'',
+        comment:''
+      }); 
+    }
   }
 
 }

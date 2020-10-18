@@ -59,14 +59,14 @@ export class FormsService {
 
   getForm() : Observable<any>{
     return this.http.get<any>(this.geturl).pipe(
-      tap(_ => this.log(`Succesfully fetched data`)),
+      tap(_ => this.log(`Succesfully fetched data`)),retry(3),
       catchError(this.handleError<any>('getting Data'))
     );
   }
 
   PostForm(temp : any): Observable<any>{
     return this.http.post<any>(this.posturl,temp,this.httpOptions).pipe(
-      tap(_ => this.log(`Succesfuly submitted form`)),
+      tap(_ => this.log(`Succesfuly submitted form`)),retry(3),
       catchError(this.handleError<any>('Posting Form'))
     );
   }
